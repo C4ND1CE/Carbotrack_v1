@@ -5,7 +5,7 @@ import numpy as np
 import datetime
 
 #If api in the cloud please update the url with the url
-url = 'https://cabotrack-qoz5nlx2ga-ew.a.run.app'
+url = 'https://cabotrack2-qoz5nlx2ga-ew.a.run.app'
 
 st.markdown("# Welcome to the Carbotrack app! #")
     
