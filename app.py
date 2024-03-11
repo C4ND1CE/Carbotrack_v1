@@ -47,7 +47,7 @@ col1, col2, col3 = st.columns([1,2,1])  # Create columns for layout
 with col2:  # Put the button in the middle column
     col2_1, col2_2, col2_3 = st.columns([1,4,1])  # Create sub-columns within col2
     with col2_2:  # Put the button in the middle sub-column
-        if st.button("Let's try to detect food type and give you an insulin recommendation!", key='predict', bg=pastel_blue, fg=pastel_pink):
+        if st.button("Let's try to detect food type and give you an insuline recomendation!", key='predict'):
 
             with st.spinner('Processing... Please wait'):
                 try:
