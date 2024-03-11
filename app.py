@@ -3,6 +3,12 @@ import requests
 from PIL import Image
 import io
 
+#colors
+pastel_blue = "#aed9e0"
+pastel_pink = "#f3c0c0"
+pastel_green = "#b6e2bd"
+pastel_yellow = "#fff7b5"
+
 # Define a list of API URLs
 url  = "https://carbo42-qoz5nlx2ga-ew.a.run.app/predict"
 
@@ -41,7 +47,7 @@ col1, col2, col3 = st.columns([1,2,1])  # Create columns for layout
 with col2:  # Put the button in the middle column
     col2_1, col2_2, col2_3 = st.columns([1,4,1])  # Create sub-columns within col2
     with col2_2:  # Put the button in the middle sub-column
-        if st.button("Let's try to detect food type and give you an insuline recomendation!", key='predict'):
+        if st.button("Let's try to detect food type and give you an insulin recommendation!", key='predict', bg=pastel_blue, fg=pastel_pink):
 
             with st.spinner('Processing... Please wait'):
                 try:
