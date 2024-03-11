@@ -6,7 +6,7 @@ import io
 # Define a list of API URLs
 api_urls = [
     "https://carbotrackapi-qoz5nlx2ga-ew.a.run.app/predict",
-    "https://anotherapi.example.com/predict",
+    "https://carbo42-qoz5nlx2ga-ew.a.run.app/predict",
 ]
 
 st.title('Food Image Analysis')
