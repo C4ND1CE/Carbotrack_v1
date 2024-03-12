@@ -4,27 +4,46 @@ from PIL import Image
 import io
 
 #colors
-pastel_blue = "#aed9e0"
-pastel_pink = "#f3c0c0"
-pastel_green = "#b6e2bd"
-pastel_yellow = "#fff7b5"
+
+blue = "#26B8B9"
+pink = "#D6489C"
+grey = "#414546"
+yellow = "#E19F3F"
 
 # Define a list of API URLs
 url  = "https://carbo42-qoz5nlx2ga-ew.a.run.app/predict"
 
-#"https://carbotrackapi-qoz5nlx2ga-ew.a.run.app/predict",
+logo = "logo.png"
+text = "# Welcome to the Carbotrack ! #"
 
-st.markdown("# Welcome to the Carbotrack app! #")
-     
-'''
-Please be aware that our app and our models are still at an early stage and can lack accuracy or not be able to detect food type!
+# Create columns for layout
+col1, col2 = st.columns([1, 4])
 
-**DO NOT** use as a medical guidance, always follow recomendations from your doctor!
+# Display logo in the first column
+with col1:
+    st.image(logo, use_column_width=True)
 
-Please upload/take a picture and test our app and see how much dose of insuline you should take based on the picture of your food received!
-'''
+# Display text in the second column
+with col2:
+    st.write(text)
+    st.markdown(
 
-st.title('Food Image Analysis')
+    f'''
+        <div style="border-radius: 20px; padding: 20px; background-color: #f0f0f0;">
+            <p>Please be aware that our app and our models are still at an early stage and can lack accuracy or not be able to detect food type!</p>
+            <p><strong>DO NOT</strong> use as a medical guidance, always follow recommendations from your doctor!</p>
+        </div>
+        ''',
+        unsafe_allow_html=True
+    )
+
+#add empty space
+st.write('')
+st.write('')
+st.write('')
+
+st.subheader('Food Image Analysis')
+st.write("Snap a photo of your meal to discover your personalized insulin dosage with our app's innovative image analysis feature!")
 
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
@@ -43,13 +62,21 @@ if uploaded_file is not None:
 
     files = {"image": (uploaded_file.name, buffer, "image/jpeg")}
 col1, col2, col3 = st.columns([1,2,1])  # Create columns for layout
-      
+
+
 with col2:  # Put the button in the middle column
     col2_1, col2_2, col2_3 = st.columns([1,4,1])  # Create sub-columns within col2
     with col2_2:  # Put the button in the middle sub-column
-        if st.button("Let's try to detect food type and give you an insuline recomendation!", key='predict'):
+    # Write a markdown with a styled text to mimic a button
+        st.write('')
+        st.write('')
+        st.write('')
+        button_clicked = st.button("**FIND OUT !**", key='predict',
+            help="This button triggers the detection of food type and provides insulin recommendation.")
 
-            with st.spinner('Processing... Please wait'):
+        if button_clicked:
+            with st.spinner('Processing... Please dance !'):
+                st.image("https://media.giphy.com/media/LmNX3rP5s2bqzHgXph/giphy.gif?cid=ecf05e47kwwtirzrsdz3w2xakgs81lv5alh7jjeaer10f44u&ep=v1_gifs_search&rid=giphy.gif&ct=g", width=300)
                 try:
                     response = requests.post(url, files=files) # type: ignore
                     if response.status_code == 200:
